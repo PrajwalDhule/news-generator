@@ -1,0 +1,1 @@
+The basic news agent is in [basic_research_workflow_agent.ipynb file](basic_research_workflow_agent.ipynb)
