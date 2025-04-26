@@ -63,7 +63,7 @@ class AgnoAgent:
                  "- `description`: A detailed summary of the news, including all the essential information.  The summary should be well-structured, easy to read (~150-200 words).\n" \
                  "- `source_links`: array of source URLs\n" \
                  "- `timestamp`: ISO-formatted datetime of generation\n" \
-                 "- `replace_id`: ID of the item to replace (null if adding new)\n"
+                 "- `replace_id`: ID of the item to replace (null if adding new), This ID should be an integer from the provided set of 3 or less news\n"
 
         agent = Agent(
             model=self.model,
@@ -97,8 +97,8 @@ class AgnoAgent:
     
     def structure_existing_news(self, news_list):
         return "\n".join([
-            f"[{n['id']}] {n['title']} — {n['timestamp']}\n" for n in news_list
-        ])
+                f"ID: {n['id']} Title: {n['title']} Timestamp: {n['timestamp']}" for n in news_list
+            ])
     
 
 def translate_text(source: Dict[str, str], target_languages: List[str]) -> List[Dict[str, any]]:
