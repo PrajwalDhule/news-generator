@@ -2,6 +2,7 @@ import json
 from typing import Union
 from basic_research_workflow_agent import AgnoAgent, translate_text
 from fastapi import FastAPI
+import uvicorn, os
 
 app = FastAPI()
 
